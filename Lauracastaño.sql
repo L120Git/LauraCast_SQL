@@ -366,3 +366,4 @@ insert into LauraCastaño_BD_SQL.monedas_revisiones (id_moneda, nombre)
 values ('10','NZD');
 
 
+
