@@ -1,5 +1,7 @@
 create schema LauraCastaño_BD_SQL authorization woeapgje
 
+
+
 --tabla grupo-empresarial
 
 create table LauraCastaño_BD_SQL.grupo_empresarial(
@@ -10,7 +12,6 @@ create table LauraCastaño_BD_SQL.grupo_empresarial(
 
 alter table LauraCastaño_BD_SQL.grupo_empresarial
 add constraint grupo_PK primary key (id_grupo_empresarial);
-
 
 --Insetar datos de Grupo_Empresarial
 
@@ -44,7 +45,6 @@ alter table LauraCastaño_BD_SQL.marcas
 add constraint marcas_grupo_FK foreign key (id_grupo_empresarial)
 references LauraCastaño_BD_SQL.grupo_empresarial (id_grupo_empresarial);
 
-
 --insertar datos de marcas
 
 insert into LauraCastaño_BD_SQL.marcas (id_marca, id_grupo_empresarial,nombre_marca) values ('1','1','AUDI');
@@ -60,6 +60,7 @@ insert into LauraCastaño_BD_SQL.marcas (id_marca, id_grupo_empresarial,nombre_m
 insert into LauraCastaño_BD_SQL.marcas (id_marca, id_grupo_empresarial,nombre_marca) values ('11','11','DACIA');
 insert into LauraCastaño_BD_SQL.marcas (id_marca, id_grupo_empresarial,nombre_marca) values ('12','4','JEEP');
 insert into LauraCastaño_BD_SQL.marcas (id_marca, id_grupo_empresarial,nombre_marca) values ('13','2','BMW');
+
 
 
 -- Tabla modelos
@@ -100,6 +101,7 @@ insert into LauraCastaño_BD_SQL.modelos (id_modelo, nombre, id_marca) values ('
 insert into LauraCastaño_BD_SQL.modelos (id_modelo, nombre, id_marca) values ('18','A3','1');
 
 
+
 --tabla aseguradoras 
 
 create table LauraCastaño_BD_SQL.aseguradoras(
@@ -122,6 +124,7 @@ insert into LauraCastaño_BD_SQL.aseguradoras (id_aseguradora, nombre_asegurador
 insert into LauraCastaño_BD_SQL.aseguradoras (id_aseguradora, nombre_aseguradora, description) values('7','AXA','');
 insert into LauraCastaño_BD_SQL.aseguradoras (id_aseguradora, nombre_aseguradora, description) values('8','GENERALI','');
 insert into LauraCastaño_BD_SQL.aseguradoras (id_aseguradora, nombre_aseguradora, description) values('9','ALLIANZ','');
+
 
 
 -- Tabla color-coches
@@ -156,7 +159,6 @@ insert into LauraCastaño_BD_SQL.color_coches (id_color, nombre) values ('16','b
 
 
 
-
 --Tabla coches
 
 create table LauraCastaño_BD_SQL.coches(
@@ -185,8 +187,7 @@ references LauraCastaño_BD_SQL.color_coches (id_color);
 
 alter table LauraCastaño_BD_SQL.coches
 add constraint coches_aseguradora_FK foreign key (id_aseguradora)
-references LauraCastaño_BD_SQL.aseguradoras (id_aseguradora); 
-
+references LauraCastaño_BD_SQL.aseguradoras (id_aseguradora);
 
 --insertar datos en coches
 
@@ -208,6 +209,8 @@ insert into LauraCastaño_BD_SQL.coches(id_coche,id_modelo, fecha_compra, matric
 insert into LauraCastaño_BD_SQL.coches(id_coche,id_modelo, fecha_compra, matricula, id_color,total_kms, id_aseguradora, num_poliza, conductor_habitual) values ('16','16','2017/01/06','1711LCP','13','3584','6','23/874325','');
 insert into LauraCastaño_BD_SQL.coches(id_coche,id_modelo, fecha_compra, matricula, id_color,total_kms, id_aseguradora, num_poliza, conductor_habitual) values ('17','17','2017/01/06','3467DCA','3','120540','8','23/876432','Luisa Gala');
 insert into LauraCastaño_BD_SQL.coches(id_coche,id_modelo, fecha_compra, matricula, id_color,total_kms, id_aseguradora, num_poliza, conductor_habitual) values ('18','18','2017/01/06','2790EEH','7','158400','9','12/865290','');
+
+
 
 --tabla monedas
 
@@ -264,8 +267,7 @@ references LauraCastaño_BD_SQL.coches(id_coche);
 
 alter table LauraCastaño_BD_SQL.revisiones_coches 
 add constraint revisiones_moneda_FK foreign key (id_moneda)
-references LauraCastaño_BD_SQL.monedas (id_moneda);--------------------------------
-
+references LauraCastaño_BD_SQL.monedas (id_moneda);
 
 --insertar datos revisiones_coches
 
@@ -287,9 +289,4 @@ insert into LauraCastaño_BD_SQL.revisiones_coches (id_revision, id_coche, fecha
 insert into LauraCastaño_BD_SQL.revisiones_coches (id_revision, id_coche, fecha_revision, kms_ultima_revision, precio_revision, id_moneda, notas) values('16','18','4000-01-01','','0','1','');
 insert into LauraCastaño_BD_SQL.revisiones_coches (id_revision, id_coche, fecha_revision, kms_ultima_revision, precio_revision, id_moneda, notas) values('17','9','2022-02-02','104000','37.00','1','');
 insert into LauraCastaño_BD_SQL.revisiones_coches (id_revision, id_coche, fecha_revision, kms_ultima_revision, precio_revision, id_moneda, notas) values('18','10','2022-03-04','102007','39.00','1','');
-
-
-
-
-
 
